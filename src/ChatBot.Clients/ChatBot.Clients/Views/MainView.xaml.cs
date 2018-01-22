@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ChatBot.Clients.Views
+namespace ChatBot.Clients.Core.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MainView : ContentPage

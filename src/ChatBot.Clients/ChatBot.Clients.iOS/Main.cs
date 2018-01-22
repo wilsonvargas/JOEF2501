@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace ChatBot.Clients.iOS
+namespace ChatBot.Clients.Core.iOS
 {
     public class Application
     {

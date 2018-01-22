@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChatBot.Clients.Services.Navigation
+namespace ChatBot.Clients.Core.Services.Navigation
 {
     public interface INavigationService
     {

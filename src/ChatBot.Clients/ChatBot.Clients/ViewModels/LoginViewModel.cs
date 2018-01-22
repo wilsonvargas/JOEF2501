@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChatBot.Clients.ViewModels
+namespace ChatBot.Clients.Core.ViewModels
 {
     class LoginViewModel
     {

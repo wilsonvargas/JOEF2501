@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChatBot.Clients.Models
+namespace ChatBot.Clients.Core.Models
 {
     public class User
     {

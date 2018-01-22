@@ -1,11 +1,12 @@
 ﻿using Autofac;
-using ChatBot.Clients.Services.Dialog;
-using ChatBot.Clients.Services.Navigation;
+using ChatBot.Clients.Core.Services.Dialog;
+using ChatBot.Clients.Core.Services.Navigation;
+using ChatBot.Clients.Core.Services.Storage;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChatBot.Clients.ViewModels.Base
+namespace ChatBot.Clients.Core.ViewModels.Base
 {
     public class Locator
     {
@@ -28,6 +29,7 @@ namespace ChatBot.Clients.ViewModels.Base
             
             _containerBuilder.RegisterType<DialogService>().As<IDialogService>();
             _containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
+            _containerBuilder.RegisterType<StorageService>().As<IStorageService>();
           
            
            

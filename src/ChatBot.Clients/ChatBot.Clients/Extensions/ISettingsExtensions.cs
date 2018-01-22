@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChatBot.Clients.Extensions
+namespace ChatBot.Clients.Core.Extensions
 {
     public static class ISettingsExtensions
     {

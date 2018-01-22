@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace ChatBot.Clients.Services.Dialog
+namespace ChatBot.Clients.Core.Services.Dialog
 {
     public class DialogService : IDialogService
     {

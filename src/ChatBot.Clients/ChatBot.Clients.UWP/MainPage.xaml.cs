@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace ChatBot.Clients.UWP
+namespace ChatBot.Clients.Core.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace ChatBot.Clients.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new ChatBot.Clients.App());
+            LoadApplication(new ChatBot.Clients.Core.App());
         }
     }
 }

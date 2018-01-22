@@ -1,12 +1,12 @@
-﻿using ChatBot.Clients.Extensions;
-using ChatBot.Clients.Models;
+﻿using ChatBot.Clients.Core.Extensions;
+using ChatBot.Clients.Core.Models;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ChatBot.Clients
+namespace ChatBot.Clients.Core
 {
     public static class AppSettings
     {

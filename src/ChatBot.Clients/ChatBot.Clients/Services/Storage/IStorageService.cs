@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatBot.Clients.Services.Storage
+namespace ChatBot.Clients.Core.Services.Storage
 {
     public interface IStorageService
     {

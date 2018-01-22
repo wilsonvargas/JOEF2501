@@ -1,4 +1,4 @@
-﻿using ChatBot.Clients.Views;
+﻿using ChatBot.Clients.Core.Views;
 using Microsoft.Azure.Documents.Client;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace ChatBot.Clients
+namespace ChatBot.Clients.Core
 {
 	public partial class App : Application
 	{
@@ -42,7 +42,14 @@ namespace ChatBot.Clients
 		{
 			InitializeComponent();
 
-			MainPage = new MainView();
+            if (AppSettings.IsLogin)
+            {
+                MainPage = new NavigationPage(new MainView());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new LoginView());
+            }
 		}
 
 		protected override void OnStart ()

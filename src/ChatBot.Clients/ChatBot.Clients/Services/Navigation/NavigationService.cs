@@ -1,15 +1,18 @@
-﻿using System;
+﻿using ChatBot.Clients.Core.ViewModels;
+using ChatBot.Clients.Core.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace ChatBot.Clients.Services.Navigation
+namespace ChatBot.Clients.Core.Services.Navigation
 {
     public class NavigationService : INavigationService
     {
         private IDictionary<Type, Type> viewModelRouting = new Dictionary<Type, Type>()
         {
             //TODO: Register list of viewmodels
+             { typeof(LoginViewModel),  typeof(LoginView) }
         };
 
         public void NavigateTo<TDestinationViewModel>(object navigationContext = null)

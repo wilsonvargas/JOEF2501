@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>ChatBot.Clients.UWP</DisplayName>
+    <DisplayName>ChatBot.Clients.Core.UWP</DisplayName>
     <PublisherDisplayName>Pierce Boggan</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="ChatBot.Clients.UWP.App">
+      EntryPoint="ChatBot.Clients.Core.UWP.App">
       <uap:VisualElements
-        DisplayName="ChatBot.Clients.UWP"
+        DisplayName="ChatBot.Clients.Core.UWP"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="ChatBot.Clients.UWP"
+        Description="ChatBot.Clients.Core.UWP"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

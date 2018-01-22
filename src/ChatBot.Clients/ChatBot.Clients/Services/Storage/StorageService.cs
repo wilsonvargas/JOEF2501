@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatBot.Clients.Services.Storage
+namespace ChatBot.Clients.Core.Services.Storage
 {
     public class StorageService : IStorageService
     {
