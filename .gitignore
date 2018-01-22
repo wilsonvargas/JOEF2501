@@ -288,4 +288,4 @@ __pycache__/
 *.xsd.cs
 
 # Settings
-/src/ChatBot.Clients/ChatBot.Clients/AppSettings.cs
+src\ChatBot.Clients\ChatBot.Clients\AppSettings.cs
