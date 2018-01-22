@@ -14,8 +14,9 @@ namespace ChatBot.Clients.Core
         public static readonly string PrimaryKey = "INSERT YOUR PRIMARY KEY";
         public static readonly string DatabaseName = "UsersDB";
         public static readonly string CollectionName = "User";
+        
 
-         
+
         private const bool DefaultIsLogin = false;
 
         private static ISettings Settings => CrossSettings.Current;
