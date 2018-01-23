@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using ChatBot.Clients.Core.Services.Authentication;
 using ChatBot.Clients.Core.Services.Dialog;
 using ChatBot.Clients.Core.Services.Navigation;
 using ChatBot.Clients.Core.Services.Storage;
@@ -30,11 +31,16 @@ namespace ChatBot.Clients.Core.ViewModels.Base
             _containerBuilder.RegisterType<DialogService>().As<IDialogService>();
             _containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
             _containerBuilder.RegisterType<StorageService>().As<IStorageService>();
-          
-           
-           
+            _containerBuilder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
+            _containerBuilder.RegisterType<DefaultBrowserCookiesService>().As<IBrowserCookiesService>();
+            _containerBuilder.RegisterType<GravatarUrlProvider>().As<IAvatarUrlProvider>();
+
+
             _containerBuilder.RegisterType<LoginViewModel>();
-           
+            _containerBuilder.RegisterType<MainViewModel>();
+            _containerBuilder.RegisterType<MenuViewModel>();
+            _containerBuilder.RegisterType<ExtendedSplashViewModel>();
+
         }
 
         public T Resolve<T>()

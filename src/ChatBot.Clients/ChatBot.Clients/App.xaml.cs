@@ -1,16 +1,19 @@
-﻿using ChatBot.Clients.Core.Views;
+﻿using ChatBot.Clients.Core.Services.Navigation;
+using ChatBot.Clients.Core.ViewModels;
+using ChatBot.Clients.Core.ViewModels.Base;
+using ChatBot.Clients.Core.Views;
 using Microsoft.Azure.Documents.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace ChatBot.Clients.Core
 {
-	public partial class App : Application
-	{
+    public partial class App : Application
+    {
         #region Properties
         public static DocumentClient _clients;
         public static Uri _collectionLink;
@@ -36,35 +39,52 @@ namespace ChatBot.Clients.Core
                 return _collectionLink;
             }
         }
+
+
+        private static Locator _locator;
+
+        public static Locator Locator
+        {
+            get { return _locator = _locator ?? new Locator(); }
+        }
         #endregion
 
-        public App ()
-		{
-			InitializeComponent();
+        static App()
+        {
+            BuildDependencies();
+        }
 
-            if (AppSettings.IsLogin)
-            {
-                MainPage = new NavigationPage(new MainView());
-            }
-            else
-            {
-                MainPage = new NavigationPage(new LoginView());
-            }
-		}
+        public App()
+        {
+            InitializeComponent();
+            InitNavigation();
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
+        }
 
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
+        public static void BuildDependencies()
+        {
+            Locator.Instance.Build();
+        }
 
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+        private Task InitNavigation()
+        {
+            var navigationService = Locator.Instance.Resolve<INavigationService>();
+            return navigationService.NavigateToAsync<ExtendedSplashViewModel>();
+        }
+
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+        }
+
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
 }

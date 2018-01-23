@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ChatBot.Clients.Core.Views
+namespace ChatBot.Clients.Core.Views.Templates
 {
-	
-	public partial class MainView : MasterDetailPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class MenuItemTemplate : ContentView
 	{
-		public MainView ()
+		public MenuItemTemplate ()
 		{
 			InitializeComponent ();
 		}

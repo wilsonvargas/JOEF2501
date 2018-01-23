@@ -13,10 +13,20 @@ namespace ChatBot.Clients.Core.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginView : ContentPage
 	{
-		public LoginView ()
+        private object Parameter { get; set; }
+        public LoginView ()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
-            InitializeComponent ();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ww)
+            {
+
+                throw;
+            }
+            
 		}
         protected override void OnAppearing()
         {

@@ -54,7 +54,7 @@ namespace ChatBot.Clients.Core.Validations
             _validations = new List<IValidationRule<T>>();
         }
 
-        public bool Validate()
+        public bool  Validate()
         {
             Errors.Clear();
 

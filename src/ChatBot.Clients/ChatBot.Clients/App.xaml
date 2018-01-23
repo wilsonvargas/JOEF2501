@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               xmlns:ctrls="clr-namespace:ChatBot.Clients.Core.Controls;assembly=ChatBot.Clients.Core"
              xmlns:effects="clr-namespace:ChatBot.Clients.Core.Effects;assembly=ChatBot.Clients.Core"
+             xmlns:converters="clr-namespace:ChatBot.Clients.Core.Converters;assembly=ChatBot.Clients.Core"
              x:Class="ChatBot.Clients.Core.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -22,7 +23,8 @@
             <Color x:Key="FacebookColor">#3B5998</Color>
 
             <!-- CONVERTERS -->
-            
+            <converters:MenuItemTypeConverter x:Key="MenuItemTypeConverter"/>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
 
             <!-- FONTS -->
             <OnPlatform x:Key="PoppinsBold"

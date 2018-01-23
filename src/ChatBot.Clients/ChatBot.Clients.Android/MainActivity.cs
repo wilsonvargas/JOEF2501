@@ -11,14 +11,15 @@ using ChatBot.Clients.Core;
 using Android.Util;
 using ChatBot.Clients.Core.Helpers;
 using Xamarin.Forms;
+using Acr.UserDialogs;
 
 namespace ChatBot.Clients.Droid
 {
     [Activity(
-        Label = "ChatBot", 
-        Icon = "@drawable/icon", 
-        Theme = "@style/MainTheme", 
-        MainLauncher = false, 
+        Label = "ChatBot",
+        Icon = "@drawable/icon",
+        Theme = "@style/MainTheme",
+        MainLauncher = false,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -30,6 +31,7 @@ namespace ChatBot.Clients.Droid
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);
+            UserDialogs.Init(this);
             InitMessageCenterSubscriptions();
             LoadApplication(new App());
             MakeStatusBarTranslucent(false);

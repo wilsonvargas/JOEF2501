@@ -9,10 +9,10 @@ using Xamarin.Forms.Xaml;
 
 namespace ChatBot.Clients.Core.Views
 {
-	
-	public partial class MainView : MasterDetailPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class ExtendedSplashView : ContentPage
 	{
-		public MainView ()
+		public ExtendedSplashView ()
 		{
 			InitializeComponent ();
 		}

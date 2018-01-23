@@ -34,5 +34,10 @@ namespace ChatBot.Clients.Core
 
             set => Settings.AddOrUpdateValue(nameof(IsLogin), value);
         }
+
+        public static void RemoveUserData()
+        {
+            Settings.Remove(nameof(User));
+        }
     }
 }
