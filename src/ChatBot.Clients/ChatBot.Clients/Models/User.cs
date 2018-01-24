@@ -16,6 +16,8 @@ namespace ChatBot.Clients.Core.Models
 
         public string Email { get; set; }
 
+        public string Password { get; set; }
+
         public string AvatarUrl { get; set; }
 
         public bool LoggedInWithFacebookAccount { get; set; }

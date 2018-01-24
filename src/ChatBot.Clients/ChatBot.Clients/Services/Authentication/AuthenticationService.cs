@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChatBot.Clients.Core.Services.Storage;
+using System;
 using System.Threading.Tasks;
 
 namespace ChatBot.Clients.Core.Services.Authentication
@@ -7,13 +8,16 @@ namespace ChatBot.Clients.Core.Services.Authentication
     {
         private readonly IBrowserCookiesService _browserCookiesService;
         private readonly IAvatarUrlProvider _avatarProvider;
+        private readonly IStorageService _storageService;
 
         public AuthenticationService(
             IBrowserCookiesService browserCookiesService,
-            IAvatarUrlProvider avatarProvider)
+            IAvatarUrlProvider avatarProvider,
+            IStorageService storageService)
         {
             _browserCookiesService = browserCookiesService;
             _avatarProvider = avatarProvider;
+            _storageService = storageService;
         }
 
         public bool IsAuthenticated => AppSettings.User != null;
@@ -22,19 +26,19 @@ namespace ChatBot.Clients.Core.Services.Authentication
 
         public Task<bool> LoginAsync(string email, string password)
         {
-            var user = new Models.User
+
+            bool result = false;
+            Models.User user = await _storageService.GetUserAsync<Models.User>(email);
+
+            if (user != null)
             {
-                Email = email,
-                Name = email,
-                LastName = string.Empty,
-                AvatarUrl = _avatarProvider.GetAvatarUrl(email),
-                Token = email,
-                LoggedInWithFacebookAccount = false
-            };
-
-            AppSettings.User = user;
-
-            return Task.FromResult(true);
+                if (user.Password == password)
+                {
+                    AppSettings.User = user;
+                    result = true;
+                }
+            }
+            return result;
         }
 
         public async Task<bool> LoginWithFacebookAsync()

@@ -10,24 +10,15 @@ using Xamarin.Forms.Xaml;
 
 namespace ChatBot.Clients.Core.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginView : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginView : ContentPage
+    {
         private object Parameter { get; set; }
-        public LoginView ()
-		{
+        public LoginView()
+        {
             NavigationPage.SetHasNavigationBar(this, false);
-            try
-            {
-                InitializeComponent();
-            }
-            catch (Exception ww)
-            {
-
-                throw;
-            }
-            
-		}
+            InitializeComponent();
+        }
         protected override void OnAppearing()
         {
             base.OnAppearing();
