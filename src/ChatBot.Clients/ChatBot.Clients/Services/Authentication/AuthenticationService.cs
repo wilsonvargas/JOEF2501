@@ -40,7 +40,6 @@ namespace ChatBot.Clients.Core.Services.Authentication
                 };
 
                 AppSettings.User = user;
-
                 return true;
             }
             else

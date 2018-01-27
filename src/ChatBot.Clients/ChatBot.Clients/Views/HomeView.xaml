@@ -45,10 +45,9 @@
                 AutomationId="home"
                 RowSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="4.6*" />
+                    <RowDefinition Height="2.0*" />
                     <RowDefinition Height="5.4*" />
                 </Grid.RowDefinitions>
-                <!-- CAROUSEL -->
                 <Grid
                     Grid.Row="0">
                     <Image
