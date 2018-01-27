@@ -24,22 +24,41 @@ namespace ChatBot.Clients.Core.Services.Authentication
 
         public Models.User AuthenticatedUser => AppSettings.User;
 
-        public Task<bool> LoginAsync(string email, string password)
+        public async Task<bool> LoginAsync(string email, string password)
         {
-            
-            var user = new Models.User
+            bool result = false;
+            if (AppSettings.IsFake)
             {
-                Email = email,
-                Name = email,
-                LastName = string.Empty,
-                AvatarUrl = _avatarProvider.GetAvatarUrl(email),
-                Token = email,
-                LoggedInWithFacebookAccount = false
-            };
+                var user = new Models.User
+                {
+                    Email = email,
+                    Name = email,
+                    LastName = string.Empty,
+                    AvatarUrl = _avatarProvider.GetAvatarUrl(email),
+                    Token = email,
+                    LoggedInWithFacebookAccount = false
+                };
 
-            AppSettings.User = user;
+                AppSettings.User = user;
 
-            return Task.FromResult(true);
+                return true;
+            }
+            else
+            {
+                Models.User user = await _storageService.GetUserAsync<Models.User>(email);
+
+                if (user != null)
+                {
+                    if (user.Password == password)
+                    {
+                        AppSettings.User = user;
+                        result = true;
+                    }
+                }
+                return result;
+            }
+            
+           
         }
 
         public async Task<bool> LoginWithFacebookAsync()

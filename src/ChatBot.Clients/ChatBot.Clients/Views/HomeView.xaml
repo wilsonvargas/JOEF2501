@@ -33,8 +33,8 @@
             Command="{Binding SettingsCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="Android, iOS" Value="ic_card" />
-                    <On Platform="UWP" Value="Assets/ic_card.png" />
+                    <On Platform="Android, iOS" Value="ic_other" />
+                    <On Platform="UWP" Value="Assets/ic_other.png" />
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -55,8 +55,8 @@
                         Aspect="AspectFill">
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="Android, iOS" Value="hero_image" />
-                                <On Platform="UWP" Value="Assets/hero_image.png" />
+                                <On Platform="Android, iOS" Value="cover" />
+                                <On Platform="UWP" Value="Assets/cover.png" />
                             </OnPlatform>
                         </Image.Source>
                     </Image>

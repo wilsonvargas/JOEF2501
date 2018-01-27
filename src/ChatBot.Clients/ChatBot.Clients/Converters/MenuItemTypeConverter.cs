@@ -20,7 +20,7 @@ namespace ChatBot.Clients.Core.Converters
                 case MenuItemType.Home:
                     return platform ? "Assets/ic_home.png" : "ic_home.png";
                 case MenuItemType.Profile:
-                    return platform ? "Assets/ic_bot.png" : "ic_bot.png";
+                    return platform ? "Assets/ic_profile.png" : "ic_profile.png";
                 case MenuItemType.Logout:
                     return platform ? "Assets/ic_logout.png" : "ic_logout.png";
                 default:

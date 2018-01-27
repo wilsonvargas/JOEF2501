@@ -14,7 +14,8 @@ namespace ChatBot.Clients.Core
         public static readonly string PrimaryKey = "INSERT YOUR PRIMARY KEY";
         public static readonly string DatabaseName = "UsersDB";
         public static readonly string CollectionName = "User";
-        
+
+        public static bool IsFake = true;
 
 
         private const bool DefaultIsLogin = false;
