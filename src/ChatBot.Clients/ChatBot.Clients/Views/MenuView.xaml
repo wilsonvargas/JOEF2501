@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               xmlns:core="clr-namespace:ChatBot.Clients.Core;assembly=ChatBot.Clients.Core"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
              xmlns:templates="clr-namespace:ChatBot.Clients.Core.Views.Templates;assembly=ChatBot.Clients.Core"
              xmlns:behaviors="clr-namespace:ChatBot.Clients.Core.Behaviors;assembly=ChatBot.Clients.Core" 
              xmlns:extensions="clr-namespace:ChatBot.Clients.Core.MarkupExtensions"
-             x:Class="ChatBot.Clients.Core.Views.MenuView">
+             x:Class="ChatBot.Clients.Core.Views.MenuView"
+             Title=" ">
     <ContentPage.Icon>
         <OnPlatform x:TypeArguments="FileImageSource">
             <On Platform="iOS" Value="ic_menu" />
@@ -57,7 +58,7 @@
                     </ffimageloading:CachedImage.LoadingPlaceholder>
                 </ffimageloading:CachedImage>
                 <Grid 
-                    BackgroundColor="#293849"
+                    BackgroundColor="#011936"
                     Opacity="0.6"/>
                 <StackLayout 
                     Padding="44, 0, 0, 10"
@@ -91,4 +92,4 @@
             </Grid>
         </Grid>
     </ContentPage.Content>
-</ContentView>
+</ContentPage>

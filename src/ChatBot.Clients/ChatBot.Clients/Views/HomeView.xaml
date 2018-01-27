@@ -1,12 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ChatBot.Clients.Core.Views.HomeView">
+<ContentPage 
+    x:Name="Self"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChatBot.Clients.Core.Views.HomeView"
+    xmlns:ctrls="clr-namespace:ChatBot.Clients.Core.Controls;assembly=ChatBot.Clients.Core"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:controls="clr-namespace:ChatBot.Clients.Core.Controls;assembly=ChatBot.Clients.Core"     
+    xmlns:extensions="clr-namespace:ChatBot.Clients.Core.MarkupExtensions"
+    BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SuggestionsTextStyle" 
+                   TargetType="Label"
+                   BasedOn="{StaticResource PoppinsMediumLabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="Margin" Value="16, 16, 0, 0" />
+            </Style>
+
+            <Style x:Key="SeeAllTextStyle" 
+                   TargetType="Label"
+                   BasedOn="{StaticResource SuggestionsTextStyle}">
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="Margin" Value="0, 16, 16, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  
+            Text="{extensions:Translate Settings}"
+            Command="{Binding SettingsCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="ic_card" />
+                    <On Platform="UWP" Value="Assets/ic_card.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid   
+                AutomationId="home"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4.6*" />
+                    <RowDefinition Height="5.4*" />
+                </Grid.RowDefinitions>
+                <!-- CAROUSEL -->
+                <Grid
+                    Grid.Row="0">
+                    <Image
+                        Aspect="AspectFill">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android, iOS" Value="hero_image" />
+                                <On Platform="UWP" Value="Assets/hero_image.png" />
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+                
+            </Grid>
+            <ActivityIndicator 
+                Color="{StaticResource AccentColor}"
+                IsRunning="{Binding IsBusy}" 
+                IsVisible="{Binding IsBusy}" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

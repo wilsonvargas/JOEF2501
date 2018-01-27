@@ -86,7 +86,7 @@ namespace ChatBot.Clients.Core.ViewModels
                 
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 await DialogService.ShowAlertAsync("An error ocurred, try again", "Error", "Ok");
             }

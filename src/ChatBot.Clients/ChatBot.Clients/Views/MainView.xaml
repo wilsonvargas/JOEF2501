@@ -5,7 +5,7 @@
     xmlns:views="clr-namespace:ChatBot.Clients.Core.Views;assembly=ChatBot.Clients.Core"
     x:Class="ChatBot.Clients.Core.Views.MainView"
     MasterBehavior="Popover"
-    Title="SmartHotel">
+    Title="ChatBot">
     <MasterDetailPage.Master>
         <views:MenuView
             BindingContext="{Binding MenuViewModel}"/>

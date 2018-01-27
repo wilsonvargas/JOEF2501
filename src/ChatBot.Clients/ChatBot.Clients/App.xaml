@@ -8,14 +8,12 @@
     <Application.Resources>
         <ResourceDictionary>
             <!-- COLORS -->
-            <Color x:Key="AccentColor">#7F318C</Color>
-            <Color x:Key="BackgroundColor">#212C37</Color>
+            <Color x:Key="AccentColor">#011936</Color>
+            <Color x:Key="BackgroundColor">#82a3a1</Color>
             <Color x:Key="BlackColor">#000000</Color>
             <Color x:Key="BlackTextColor">#253748</Color>
             <Color x:Key="BlueColor">#0072C6</Color>
             <Color x:Key="GreenColor">#368F94</Color>
-            <Color x:Key="OrangeColor">#212C37</Color>
-            <Color x:Key="LightOrangeColor">#212C37</Color>
             <Color x:Key="WhiteColor">#FFFFFF</Color>
             <Color x:Key="ValidationErrorColor">#FF204F</Color>
             <Color x:Key="DarkGrayColor">#ADADAD</Color>
@@ -207,7 +205,7 @@
                 <Setter Property="Opacity"
                         Value="0.6" />
                 <Setter Property="FocusLineColor"
-                        Value="{StaticResource LightOrangeColor}" />
+                        Value="{StaticResource AccentColor}" />
                 <Setter Property="InvalidLineColor"
                         Value="{StaticResource ValidationErrorColor}" />
                 <Style.Triggers>

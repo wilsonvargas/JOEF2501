@@ -10,5 +10,7 @@ namespace ChatBot.Clients.Core.Services.Authentication
         Task<bool> LoginAsync(string email, string password);
 
         Task<bool> LoginWithFacebookAsync();
+
+        Task LogoutAsync();
     }
 }
