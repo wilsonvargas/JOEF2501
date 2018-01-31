@@ -170,6 +170,7 @@ namespace ChatBot.Clients.Core.Services.Navigation
             _mappings.Add(typeof(MenuViewModel), typeof(MenuView));
             _mappings.Add(typeof(ExtendedSplashViewModel), typeof(ExtendedSplashView));
             _mappings.Add(typeof(HomeViewModel), typeof(HomeView));
+            _mappings.Add(typeof(AboutViewModel), typeof(AboutView));
 
         }
     }

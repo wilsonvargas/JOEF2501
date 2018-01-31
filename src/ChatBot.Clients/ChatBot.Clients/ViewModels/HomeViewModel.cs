@@ -30,7 +30,7 @@ namespace ChatBot.Clients.Core.ViewModels
             try
             {
                 IsBusy = true;
-                var authenticatedUser = AppSettings.User;
+                var authenticatedUser = _authenticationService.AuthenticatedUser;
             }
             catch (Exception ex)
             {
