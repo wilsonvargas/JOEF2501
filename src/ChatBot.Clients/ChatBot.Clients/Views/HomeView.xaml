@@ -6,7 +6,8 @@
     x:Class="ChatBot.Clients.Core.Views.HomeView"
     xmlns:ctrls="clr-namespace:ChatBot.Clients.Core.Controls;assembly=ChatBot.Clients.Core"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-    xmlns:controls="clr-namespace:ChatBot.Clients.Core.Controls;assembly=ChatBot.Clients.Core"     
+    xmlns:controls="clr-namespace:ChatBot.Clients.Core.Controls;assembly=ChatBot.Clients.Core"
+    xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
     xmlns:extensions="clr-namespace:ChatBot.Clients.Core.MarkupExtensions"
     BackgroundColor="White">
     <ContentPage.Resources>
@@ -25,6 +26,15 @@
                 <Setter Property="HorizontalTextAlignment" Value="End" />
                 <Setter Property="Margin" Value="0, 16, 16, 0" />
             </Style>
+            
+            <Style x:Key="GetStartedButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="BorderRadius" Value="20" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource ButtonFontSize}" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -41,26 +51,46 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
-            <Grid   
-                AutomationId="home"
-                RowSpacing="0">
+            <Grid RowSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2.0*" />
-                    <RowDefinition Height="5.4*" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Grid
-                    Grid.Row="0">
-                    <Image
-                        Aspect="AspectFill">
-                        <Image.Source>
-                            <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="Android, iOS" Value="cover" />
-                                <On Platform="UWP" Value="Assets/cover.png" />
-                            </OnPlatform>
-                        </Image.Source>
-                    </Image>
-                </Grid>
-                
+
+                <!-- cover -->
+                <Image Source="cover.png" Aspect="AspectFill"/>
+
+                <!-- profile name -->
+                <StackLayout Grid.Row="1" Padding="0,50,0,0">
+                    <Label Text="{extensions:Translate AppName}"
+                       Style="{StaticResource ProfileNameLabel}"/>
+                    <Label Text="{extensions:Translate ProblemSolver}"
+                       Style="{StaticResource ProfileTagLabel}"/>
+                </StackLayout>
+
+                <!-- get started button -->
+                <Button    
+                            Text="{extensions:Translate GetStarted}"
+                            AutomationId="signin"
+                            Command="{Binding SignInCommand}"
+                            BackgroundColor="{StaticResource BackgroundColor}"
+                            TextColor="{StaticResource WhiteColor}"
+                        Grid.Row="2"
+                Margin="20,0">
+                    <Button.HorizontalOptions>
+                        <OnIdiom
+                                x:TypeArguments="LayoutOptions" 
+                                Desktop="Center" 
+                                Phone="FillAndExpand"  />
+                    </Button.HorizontalOptions>
+                </Button>
+
+                <!-- bot image -->
+                <imagecircle:CircleImage Source="icon.png" 
+                   VerticalOptions="End" HorizontalOptions="Center"
+                   HeightRequest="100" WidthRequest="100"
+                   TranslationY="50"/>
             </Grid>
             <ActivityIndicator 
                 Color="{StaticResource AccentColor}"

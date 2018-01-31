@@ -18,7 +18,7 @@ namespace ChatBot.Clients.Core
         public static bool IsFake = true;
 
 
-        private const bool DefaultIsLogin = false;
+        private const bool DefaultIsLogin = true;
 
         private static ISettings Settings => CrossSettings.Current;
 

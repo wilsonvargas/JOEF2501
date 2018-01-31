@@ -61,6 +61,15 @@ namespace ChatBot.Clients.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RoboName.
+        /// </summary>
+        internal static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to launch Bot..
         /// </summary>
         internal static string BotError {
@@ -178,6 +187,15 @@ namespace ChatBot.Clients.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get Started.
+        /// </summary>
+        internal static string GetStarted {
+            get {
+                return ResourceManager.GetString("GetStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello,.
         /// </summary>
         internal static string Hello {
@@ -246,6 +264,15 @@ namespace ChatBot.Clients.Core {
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code Problem Solver.
+        /// </summary>
+        internal static string ProblemSolver {
+            get {
+                return ResourceManager.GetString("ProblemSolver", resourceCulture);
             }
         }
         

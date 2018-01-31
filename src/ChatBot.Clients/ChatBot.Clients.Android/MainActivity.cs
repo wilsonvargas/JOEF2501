@@ -32,6 +32,7 @@ namespace ChatBot.Clients.Droid
 
             Forms.Init(this, bundle);
             UserDialogs.Init(this);
+            ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
             InitMessageCenterSubscriptions();
             LoadApplication(new App());
             MakeStatusBarTranslucent(false);
