@@ -61,6 +61,15 @@ namespace ChatBot.Clients.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RoboName.
         /// </summary>
         internal static string AppName {
@@ -282,15 +291,6 @@ namespace ChatBot.Clients.Core {
         internal static string RemoteJson {
             get {
                 return ResourceManager.GetString("RemoteJson", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Settings.
-        /// </summary>
-        internal static string Settings {
-            get {
-                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         

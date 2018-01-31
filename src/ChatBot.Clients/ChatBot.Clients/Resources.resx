@@ -159,8 +159,8 @@
   <data name="RemoteJson" xml:space="preserve">
     <value>Remote JSON file URL</value>
   </data>
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
   </data>
   <data name="SignInMayus" xml:space="preserve">
     <value>SIGN IN</value>

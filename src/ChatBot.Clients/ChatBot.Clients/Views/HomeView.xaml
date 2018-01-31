@@ -39,8 +39,8 @@
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem  
-            Text="{extensions:Translate Settings}"
-            Command="{Binding SettingsCommand}">
+            Text="{extensions:Translate About}"
+            Command="{Binding AboutCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="Android, iOS" Value="ic_other" />
