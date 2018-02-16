@@ -73,7 +73,7 @@
                 <Button    
                             Text="{extensions:Translate GetStarted}"
                             AutomationId="signin"
-                            Command="{Binding SignInCommand}"
+                            Command="{Binding GettingStartedCommand}"
                             BackgroundColor="{StaticResource BackgroundColor}"
                             TextColor="{StaticResource WhiteColor}"
                         Grid.Row="2"

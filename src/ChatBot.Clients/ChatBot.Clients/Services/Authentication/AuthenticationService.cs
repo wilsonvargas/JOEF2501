@@ -40,6 +40,7 @@ namespace ChatBot.Clients.Core.Services.Authentication
                 };
 
                 AppSettings.User = user;
+                AppSettings.IsLogin = true;
                 return true;
             }
             else
@@ -51,6 +52,7 @@ namespace ChatBot.Clients.Core.Services.Authentication
                     if (user.Password == password)
                     {
                         AppSettings.User = user;
+                        AppSettings.IsLogin = true;
                         result = true;
                     }
                 }

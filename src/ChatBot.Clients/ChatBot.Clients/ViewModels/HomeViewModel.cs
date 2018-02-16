@@ -18,10 +18,8 @@ namespace ChatBot.Clients.Core.ViewModels
         {
             _authenticationService = authenticationService;
         }
-        
-        
 
-        public ICommand SettingsCommand => new Command(async () => await AboutAsync());
+        public ICommand AboutCommand => new Command(async () => await AboutAsync());
 
         public ICommand GettingStartedCommand => new Command(async () => await GettingStartedAsync());
 
@@ -42,17 +40,18 @@ namespace ChatBot.Clients.Core.ViewModels
                 IsBusy = false;
             }
         }
+
         private async Task AboutAsync()
         {
             await NavigationService.NavigateToPopupAsync<AboutViewModel>(true);
         }
-       
+
         private async Task GettingStartedAsync()
         {
             if (AppSettings.IsLogin)
             {
                 await NavigationService.NavigateToAsync<ChatRoomViewModel>();
             }
-        }       
+        }
     }
 }

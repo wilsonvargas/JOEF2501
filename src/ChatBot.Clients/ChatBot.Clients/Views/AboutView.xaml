@@ -11,29 +11,33 @@
     <pages:PopupPage.Resources>
         <ResourceDictionary>
 
-            <Style x:Key="AboutTitlePanelStyle" 
-                   TargetType="StackLayout">
-                <Setter Property="Margin" Value="24, 48" />
-            </Style>
-
             <Style x:Key="AboutTextStyle" 
                    TargetType="Label"
-                   BasedOn="{StaticResource FiraSansRegularLabelStyle}">
-                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
-                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="Margin" Value="0, 12" />
+                   BasedOn="{StaticResource PoppinsRegularLabelStyle}">
+                <Setter Property="TextColor" 
+                        Value="{StaticResource BlackTextColor}" />
+                <Setter Property="HorizontalOptions" 
+                        Value="FillAndExpand" />
+                <Setter Property="FontSize" 
+                        Value="{StaticResource MediumSize}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
             </Style>
 
-            <Color x:Key="AboutBackgroundColor">#F3F3F3</Color>
 
             <Style x:Key="AboutPanelStyle" 
                    TargetType="Grid">
-                <Setter Property="BackgroundColor" Value="{StaticResource AboutBackgroundColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="Margin" Value="24, 0, 24, 24" />
+                <Setter Property="Margin" Value="24" />
+            </Style>
+
+            <Style x:Key="AboutSocialStyle" 
+                   TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="24" />
             </Style>
 
         </ResourceDictionary>
@@ -66,21 +70,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout
-                Grid.Row="0"
-                Style="{StaticResource AboutTitlePanelStyle}">
-                <Label    
-                    Text="Desarrollado con amor por"  
-                    Style="{StaticResource AboutTextStyle}"/>
-                <Label 
-                    Text="Wilson Vargas"  
-                    Style="{StaticResource AboutTextStyle}"/>
-            </StackLayout>
+            
             <Grid
-                Grid.Row="1"
+                Grid.Row="0"
                 Style="{StaticResource AboutPanelStyle}">
-                <imagecircle:CircleImage>
+                <imagecircle:CircleImage HeightRequest="150" WidthRequest="150">
                     <imagecircle:CircleImage.Source>
                         <OnPlatform x:TypeArguments="ImageSource">
                             <On Platform="Android, iOS" Value="me" />
@@ -89,6 +85,43 @@
                     </imagecircle:CircleImage.Source>
                 </imagecircle:CircleImage>
             </Grid>
+            <StackLayout Grid.Row="1" Orientation="Vertical" Margin="20,0">
+                <Label Style="{StaticResource AboutTextStyle}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Mi padre se llama" />
+                                <Span Text=" " />
+                                <Span Text="Wilson Vargas" FontAttributes="Bold" />
+                                <Span Text="." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource AboutTextStyle}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Él me hizo con mucho amor para poder ayudarlos" />
+                                <Span Text="." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource AboutTextStyle}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Ayudalo a mejorarme, si alguna vez fallo dile lo que hice" />
+                                <Span Text="." />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Orientation="Vertical" Style="{StaticResource AboutSocialStyle}">
+                
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </pages:PopupPage>
