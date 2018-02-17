@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ChatBot.Clients.Core.Views.AboutView"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"   
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+    xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
     xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
     xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
     xmlns:extensions="clr-namespace:SmartHotel.Clients.Core.MarkupExtensions">
@@ -72,7 +73,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
+
             <Grid
                 Grid.Row="0"
                 Style="{StaticResource AboutPanelStyle}">
@@ -120,7 +121,20 @@
                 </Label>
             </StackLayout>
             <StackLayout Grid.Row="2" Orientation="Vertical" Style="{StaticResource AboutSocialStyle}">
-                
+                <StackLayout Orientation="Horizontal"  Margin="0,20,0,0" HorizontalOptions="FillAndExpand">
+                    <iconize:IconButton Text="fa-github" HorizontalOptions="FillAndExpand" 
+                                            FontSize="30" TextColor="#000000" 
+                                            BackgroundColor="#E4F3FF" 
+                                            HeightRequest="50"
+                                            Command="{Binding LoginFacebookCommand}"/>
+                    <iconize:IconButton Text="fa-twitter" HorizontalOptions="FillAndExpand" 
+                                            TextColor="#00aced" FontSize="30" 
+                                            BackgroundColor="#E4F3FF" 
+                                            HeightRequest="50"/>
+                    <iconize:IconButton Text="fa-link" HorizontalOptions="FillAndExpand" 
+                                            TextColor="#495057" FontSize="30" 
+                                            BackgroundColor="#E4F3FF" HeightRequest="50"/>
+                </StackLayout>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
