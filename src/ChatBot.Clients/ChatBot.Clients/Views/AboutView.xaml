@@ -126,14 +126,16 @@
                                             FontSize="30" TextColor="#000000" 
                                             BackgroundColor="#E4F3FF" 
                                             HeightRequest="50"
-                                            Command="{Binding LoginFacebookCommand}"/>
+                                            Command="{Binding GithubNavigation}"/>
                     <iconize:IconButton Text="fa-twitter" HorizontalOptions="FillAndExpand" 
                                             TextColor="#00aced" FontSize="30" 
                                             BackgroundColor="#E4F3FF" 
-                                            HeightRequest="50"/>
+                                            HeightRequest="50"
+                                            Command="{Binding TwitterNavigation}"/>
                     <iconize:IconButton Text="fa-link" HorizontalOptions="FillAndExpand" 
                                             TextColor="#495057" FontSize="30" 
-                                            BackgroundColor="#E4F3FF" HeightRequest="50"/>
+                                            BackgroundColor="#E4F3FF" HeightRequest="50"
+                                            Command="{Binding WebNavigation}"/>
                 </StackLayout>
             </StackLayout>
         </Grid>

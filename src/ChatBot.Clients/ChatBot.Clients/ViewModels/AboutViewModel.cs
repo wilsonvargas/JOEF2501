@@ -20,10 +20,28 @@ namespace ChatBot.Clients.Core.ViewModels
         }
 
         public ICommand ClosePopupCommand => new Command(async () => await ClosePopupAsync());
-        
+        public ICommand TwitterNavigationCommand => new Command(TwitterNavigation);
+
+        public ICommand GithubNavigationCommand => new Command(GithubNavigation);
+        public ICommand WebNavigationCommand => new Command(WebNavigation);
+
         private async Task ClosePopupAsync()
         {
             await PopupNavigation.PopAllAsync(true);
+        }
+
+        private void GithubNavigation() {
+            Device.OpenUri(new Uri("https://github.com/wilsonvargas"));
+        }
+
+        private void TwitterNavigation()
+        {
+            Device.OpenUri(new Uri("https://twitter.com/Wilson_VargasM"));
+        }
+
+        private void WebNavigation()
+        {
+            Device.OpenUri(new Uri("https://blog.wilsonvargas.com"));
         }
     }
 }
