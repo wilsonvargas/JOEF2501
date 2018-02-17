@@ -26,6 +26,9 @@
             <!-- CONVERTERS -->
             <converters:MenuItemTypeConverter x:Key="MenuItemTypeConverter"/>
             <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+            <converters:TypeToBackgroundConverter x:Key="TypeToBackgroundConverter" />
+            <converters:TypeToColumnConverter x:Key="TypeToColumnConverter" />
+            <converters:TypeToTextColorConverter x:Key="TypeToTextColorConverter" />
 
             <!-- FONTS -->
             <OnPlatform x:Key="PoppinsBold"
