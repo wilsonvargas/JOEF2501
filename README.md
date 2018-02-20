@@ -4,4 +4,4 @@
 
 **JOEF-2501** is an useful bot that will help you in problems about programming.
 
-Made with ![heart](https://png.icons8.com/office/1600/hearts.png) by [Wilson Vargas](https://blog.wilsonvargas.com)
+Made with <img src="https://png.icons8.com/office/1600/hearts.png" data-canonical-src="https://png.icons8.com/office/1600/hearts.png" width="25" height="25" /> by [Wilson Vargas](https://blog.wilsonvargas.com)
