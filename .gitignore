@@ -289,3 +289,4 @@ __pycache__/
 
 # Settings
 src/ChatBot.Clients/ChatBot.Clients/AppSettings.cs
+src/ChatBot.Server/AppSettings.cs
