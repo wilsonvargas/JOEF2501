@@ -70,7 +70,7 @@ namespace ChatBot.Clients.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RoboName.
+        ///   Looks up a localized string similar to JOEF-2501.
         /// </summary>
         internal static string AppName {
             get {
@@ -84,6 +84,15 @@ namespace ChatBot.Clients.Core {
         internal static string BotError {
             get {
                 return ResourceManager.GetString("BotError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Joef-2501.
+        /// </summary>
+        internal static string BotName {
+            get {
+                return ResourceManager.GetString("BotName", resourceCulture);
             }
         }
         

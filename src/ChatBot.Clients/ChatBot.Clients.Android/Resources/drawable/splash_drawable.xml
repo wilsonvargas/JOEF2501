@@ -4,7 +4,9 @@
   <item
         android:drawable="@drawable/background"/>
 
-  <item>
+  <item
+    android:left="50dp"
+        android:right="50dp">
     <bitmap
         android:src="@drawable/icon"
         android:gravity="center"

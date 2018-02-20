@@ -9,10 +9,10 @@
         <ResourceDictionary>
             <!-- COLORS -->
             <Color x:Key="AccentColor">#011936</Color>
-            <Color x:Key="BackgroundColor">#82a3a1</Color>
+            <Color x:Key="BackgroundColor">#074E8A</Color>
             <Color x:Key="BlackColor">#000000</Color>
             <Color x:Key="BlackTextColor">#253748</Color>
-            <Color x:Key="BlueColor">#0072C6</Color>
+            <Color x:Key="BlueColor">#074E8A</Color>
             <Color x:Key="GreenColor">#368F94</Color>
             <Color x:Key="WhiteColor">#FFFFFF</Color>
             <Color x:Key="ValidationErrorColor">#FF204F</Color>
@@ -282,7 +282,7 @@
             <Style x:Key="ProfileNameLabel"
                 TargetType="Label"
                    BasedOn="{StaticResource PoppinsMediumLabelStyle}">
-                <Setter Property="TextColor" Value="{StaticResource BlackTextColor}" />
+                <Setter Property="TextColor" Value="{StaticResource BackgroundColor}" />
                 <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
                 <Setter Property="Margin" Value="16, 0" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />

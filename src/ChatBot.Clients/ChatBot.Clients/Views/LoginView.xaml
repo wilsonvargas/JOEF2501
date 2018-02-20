@@ -147,7 +147,7 @@
                             Style="{StaticResource LogoStyle}">
                             <Image.Source>
                                 <OnPlatform x:TypeArguments="ImageSource">
-                                    <On Platform="Android, iOS" Value="logo_splash" />
+                                    <On Platform="Android, iOS" Value="logo_splash.png" />
                                     <On Platform="UWP" Value="Assets/logo_splash.png" />
                                 </OnPlatform>
                             </Image.Source>
@@ -181,6 +181,7 @@
                     <ctrls:ExtendedEntry 
                         x:Name="UsernameEntry"
                         Grid.Row="2"
+                        FocusLineColor="{StaticResource BackgroundColor}"
                         Placeholder="{extensions:Translate Username}"
                         AutomationId="username"
                         Text="{Binding UserName.Value, Mode=TwoWay}"
@@ -211,6 +212,7 @@
                         x:Name="PasswordEntry"
                         IsPassword="True"                  
                         Placeholder="{extensions:Translate Password}"
+                        FocusLineColor="{StaticResource BackgroundColor}"
                         AutomationId="password"
                         Text="{Binding Password.Value, Mode=TwoWay}" 
                         IsValid="{Binding Password.IsValid, Mode=TwoWay}">

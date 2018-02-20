@@ -42,6 +42,7 @@ namespace ChatBot.Clients.Core.ViewModels.Base
             _containerBuilder.RegisterType<ExtendedSplashViewModel>();
             _containerBuilder.RegisterType<HomeViewModel>();
             _containerBuilder.RegisterType<AboutViewModel>();
+            _containerBuilder.RegisterType<ChatRoomViewModel>();
 
         }
 

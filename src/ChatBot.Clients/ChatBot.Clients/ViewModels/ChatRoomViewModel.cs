@@ -7,5 +7,6 @@ namespace ChatBot.Clients.Core.ViewModels
 {
     public class ChatRoomViewModel : ViewModelBase
     {
+        
     }
 }

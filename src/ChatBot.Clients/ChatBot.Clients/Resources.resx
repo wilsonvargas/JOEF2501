@@ -199,12 +199,15 @@
     <value>Bot selection</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>RoboName</value>
+    <value>JOEF-2501</value>
   </data>
   <data name="GetStarted" xml:space="preserve">
     <value>Get Started</value>
   </data>
   <data name="ProblemSolver" xml:space="preserve">
     <value>Code Problem Solver</value>
+  </data>
+  <data name="BotName" xml:space="preserve">
+    <value>Joef-2501</value>
   </data>
 </root>

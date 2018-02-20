@@ -163,8 +163,7 @@ namespace ChatBot.Clients.Core.Services.Navigation
         }
 
         private void CreatePageViewModelMappings()
-        {
-           
+        {           
             _mappings.Add(typeof(LoginViewModel), typeof(LoginView));
             _mappings.Add(typeof(MainViewModel), typeof(MainView));
             _mappings.Add(typeof(MenuViewModel), typeof(MenuView));
@@ -172,7 +171,6 @@ namespace ChatBot.Clients.Core.Services.Navigation
             _mappings.Add(typeof(HomeViewModel), typeof(HomeView));
             _mappings.Add(typeof(AboutViewModel), typeof(AboutView));
             _mappings.Add(typeof(ChatRoomViewModel), typeof(ChatRoomView));
-
         }
     }
 }

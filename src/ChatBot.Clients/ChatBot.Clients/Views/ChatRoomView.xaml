@@ -57,7 +57,7 @@
 
                 <Button Grid.Row="2" Grid.Column="3" Image="send.png" BorderColor="Transparent" BorderRadius = "5"
               BorderWidth = "2"
-              TextColor="White" BackgroundColor="{StaticResource ColorAqua}" />
+              TextColor="White" BackgroundColor="Red" />
 
             </Grid>
             <ActivityIndicator Grid.RowSpan="1"
