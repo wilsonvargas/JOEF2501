@@ -52,7 +52,7 @@ namespace ChatBot.Server
                         if (newMember.Id != message.Recipient.Id)
                         {
                             var reply = message.CreateReply();
-                            reply.Text = $"Hola {newMember.Name}, soy RoboName estoy encantado de ayudarte con tu dudas en programación. Cual es tu duda?";
+                            reply.Text = $"Hola {newMember.Name}, soy JOEF-2501 estoy encantado de ayudarte con tu dudas en programación. Cual es tu duda?";
                             client.Conversations.ReplyToActivityAsync(reply);
                         }
                     }
