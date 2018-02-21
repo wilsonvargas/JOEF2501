@@ -21,8 +21,8 @@ namespace ChatBot.Server.Dialogs
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
             var activity = await result as Activity;
-            var language = await TextAnalyticsService.DetermineLanguageAsync(activity.Text);
-            await context.PostAsync($"Your language is {language}");
+            
+            await context.PostAsync(activity.Text);
             context.Wait(MessageReceivedAsync);
         }
     }

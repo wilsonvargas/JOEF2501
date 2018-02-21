@@ -2,9 +2,14 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Autofac;
+using ChatBot.Server.Models;
+using ChatBot.Server.Services.AnalyticsService;
 using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Dialogs.Internals;
 using Microsoft.Bot.Connector;
 
 namespace ChatBot.Server
@@ -18,8 +23,44 @@ namespace ChatBot.Server
         /// </summary>
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
+            //save user's LanguageCode to Azure Table Storage
+            var message = activity as IMessageActivity;
             if (activity.Type == ActivityTypes.Message)
             {
+                var userLanguage = await TranslateService.DetermineLanguageAsync(activity.Text);
+                try
+                {
+                    using (var scope = DialogModule.BeginLifetimeScope(Conversation.Container, message))
+                    {
+                        var botDataStore = scope.Resolve<IBotDataStore<BotData>>();
+                        var key = new AddressKey()
+                        {
+                            BotId = message.Recipient.Id,
+                            ChannelId = message.ChannelId,
+                            UserId = message.From.Id,
+                            ConversationId = message.Conversation.Id,
+                            ServiceUrl = message.ServiceUrl
+                        };
+
+                        
+                        var userData = await botDataStore.LoadAsync(key, BotStoreType.BotUserData, CancellationToken.None);
+
+                        var storedLanguageCode = userData.GetProperty<string>(AppSettings.UserLanguageKey);
+
+                        //update user's language in Azure Table Storage
+                        if (storedLanguageCode != userLanguage)
+                        {
+                            userData.SetProperty(AppSettings.UserLanguageKey, userLanguage);
+                            await botDataStore.SaveAsync(key, BotStoreType.BotUserData, userData, CancellationToken.None);
+                            await botDataStore.FlushAsync(key, CancellationToken.None);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                activity.Text = await TranslateService.Translate(activity.Text, userLanguage, AppSettings.DefaultLanguage);
                 await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
             }
             else
