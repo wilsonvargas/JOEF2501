@@ -133,9 +133,12 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LUIS\ChatDialog.cs" />
+    <Compile Include="LUIS\ChatResponse.cs" />
     <Compile Include="Models\AddressKey.cs" />
     <Compile Include="Models\LuisResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

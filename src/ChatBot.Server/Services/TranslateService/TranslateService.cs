@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+using Microsoft.Bot.Connector;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,6 +33,15 @@ namespace ChatBot.Server.Services.AnalyticsService
             }
         }
         #endregion
+
+        public static async Task<string> TranslateTextToDefaultLanguage(Activity activity, string inputLanguage)
+        {
+            if (inputLanguage != AppSettings.DefaultLanguage)
+            {
+                return await Translate(activity.Text, inputLanguage, AppSettings.DefaultLanguage);
+            }
+            return activity.Text;
+        }
 
         public static async Task<string> Translate(string inputText, string inputLocale, string outputLocale)
         {
