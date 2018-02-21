@@ -11,7 +11,7 @@ namespace ChatBot.Server.Services.AnalyticsService
     public class TextAnalyticsService
     {
         #region Properties
-        public static TextAnalyticsAPI client;
+        private static TextAnalyticsAPI client;
         public static TextAnalyticsAPI Client
         {
             get
@@ -32,9 +32,9 @@ namespace ChatBot.Server.Services.AnalyticsService
             var input = new Input(new Guid().ToString(), sentence);
 
             LanguageBatchResult resultLanguage = await Client.DetectLanguageAsync(
-                new BatchInput(new List<Input>() { input}));
+                new BatchInput(new List<Input>() { input }));
 
             return resultLanguage.Documents[0].DetectedLanguages[0].Name;
         }
-}
+    }
 }
