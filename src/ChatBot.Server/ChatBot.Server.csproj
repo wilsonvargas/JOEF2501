@@ -141,7 +141,9 @@
     <Compile Include="LUIS\ChatResponse.cs" />
     <Compile Include="Models\AddressKey.cs" />
     <Compile Include="Models\LuisResponse.cs" />
+    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SearchService\SearchQueryService.cs" />
     <Compile Include="Services\TranslateService\TranslateService.cs" />
   </ItemGroup>
   <ItemGroup>

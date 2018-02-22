@@ -48,7 +48,7 @@ namespace ChatBot.Server.Services.AnalyticsService
             try
             {
                 string uri =
-                    $"{AppSettings.TranslatorHost}{AppSettings.TranslatorPath}Translate?text" +
+                    $"{AppSettings.TranslatorUriBase}Translate?text" +
                     $"={HttpUtility.UrlEncode(inputText)}&from={inputLocale}&to={outputLocale}";
 
                 HttpResponseMessage response = await Client.GetAsync(uri);
@@ -71,7 +71,7 @@ namespace ChatBot.Server.Services.AnalyticsService
         {
             try
             {
-                string uri = $"{AppSettings.TranslatorHost}{AppSettings.TranslatorPath}Detect?text=" + HttpUtility.UrlEncode(input);
+                string uri = $"{AppSettings.TranslatorUriBase}Detect?text=" + HttpUtility.UrlEncode(input);
                 
                 HttpResponseMessage response = await Client.GetAsync(uri);
                 string result = await response.Content.ReadAsStringAsync();
