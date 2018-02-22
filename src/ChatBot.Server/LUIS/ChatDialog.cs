@@ -1,9 +1,11 @@
 ﻿using ChatBot.Server.Extensions;
+using ChatBot.Server.Models;
 using ChatBot.Server.Services.SearchService;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
 using Microsoft.Bot.Connector;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,9 +59,9 @@ namespace ChatBot.Server.LUIS
             var response = ChatResponse.Question;
 
             var resultJson = SearchQueryService.SearchQueryId(message.Text);
-
+            var resultQuery = JsonConvert.DeserializeObject<SearchApiResult>(resultJson);
             await context.PostAsync(await response.ToUserLocale(context));
-
+            
             context.Wait(MessageReceived);
         }
 
