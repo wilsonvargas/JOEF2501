@@ -14,7 +14,7 @@ namespace ChatBot.Server.Extensions
         {
             context.UserData.TryGetValue(AppSettings.UserLanguageKey, out string userLanguageCode);
 
-            text = await TranslateService.Translate(text, userLanguageCode, AppSettings.DefaultLanguage);
+            text = await TranslateService.Translate(text, AppSettings.DefaultLanguage, userLanguageCode);
 
             return text;
         }

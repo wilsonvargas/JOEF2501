@@ -7,11 +7,11 @@ namespace ChatBot.Server.LUIS
 {
     public static class ChatResponse
     {
-        public static readonly string Greeting = "Hola, soy JOEF-2501 estoy encantado de ayudarte con tu dudas en programación. Cual es tu duda?";
+        public static readonly string Greeting = "Hi, I'm JOEF-2501 I'm so happy to help you with your programming questions. Tell me what's your question?";
 
-        public static readonly string Farewell = "Me alegro de poder ayudarte";
+        public static readonly string Farewell = "Thanks for chatting. Goodbye.";
 
-        public static readonly string Default = "Lo siento, no entendí. Me puedes repetir la pregunta por favor?";
+        public static readonly string Default = "Sorry I didn't understand. Can you say that again please?";
 
         public static readonly string Question = "Oh right, let me think about this!";
 
