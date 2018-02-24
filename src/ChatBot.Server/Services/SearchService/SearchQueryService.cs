@@ -1,4 +1,5 @@
 ﻿using ChatBot.Server.Models;
+using ChatBot.Server.Models.BingSearch;
 using System;
 using System.Collections.Generic;
 using System.IO;

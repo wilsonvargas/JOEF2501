@@ -1,4 +1,4 @@
-﻿namespace ChatBot.Server.Models
+﻿namespace ChatBot.Server.Models.LUIS
 {
     public class LuisResponse
     {

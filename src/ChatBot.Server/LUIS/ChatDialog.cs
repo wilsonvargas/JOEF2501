@@ -1,6 +1,10 @@
 ﻿using ChatBot.Server.Extensions;
+using ChatBot.Server.Helpers;
 using ChatBot.Server.Models;
+using ChatBot.Server.Models.BingSearch;
+using ChatBot.Server.Models.StackOverflow;
 using ChatBot.Server.Services.SearchService;
+using ChatBot.Server.Services.StackOverflowService;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
@@ -56,11 +60,14 @@ namespace ChatBot.Server.LUIS
         [LuisIntent("Question")]
         public async Task Question(IDialogContext context, LuisResult result)
         {
-            var response = ChatResponse.Question;
-
-            var resultJson = SearchQueryService.SearchQueryId(message.Text);
+            var resultJson = SearchQueryService.SearchQueryId(message.Text + " stackoverflow");
             var resultQuery = JsonConvert.DeserializeObject<SearchApiResult>(resultJson);
-            await context.PostAsync(await response.ToUserLocale(context));
+            ValueSearchResult question = resultQuery.WebPages.Value.FirstOrDefault();
+            string id = Util.GetIdQuestion(question.Url);
+            string answerJson = await AnswerService.GetJsonFromStackOverflow(id);
+            Answer answer = JsonConvert.DeserializeObject<AnswerResult>(answerJson).Answers.Where(x => x.IsAccepted == true).FirstOrDefault();
+                
+            await context.PostAsync(await answer.Body.ToUserLocale(context));
             
             context.Wait(MessageReceived);
         }

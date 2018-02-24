@@ -137,15 +137,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Util.cs" />
     <Compile Include="LUIS\ChatDialog.cs" />
     <Compile Include="LUIS\ChatResponse.cs" />
     <Compile Include="Models\AddressKey.cs" />
-    <Compile Include="Models\LuisResponse.cs" />
-    <Compile Include="Models\SearchResult.cs" />
-    <Compile Include="Models\ValueSearchResult.cs" />
-    <Compile Include="Models\SearchApiResult.cs" />
+    <Compile Include="Models\StackOverflow\Answer.cs" />
+    <Compile Include="Models\StackOverflow\AnswerResult.cs" />
+    <Compile Include="Models\LUIS\LuisResponse.cs" />
+    <Compile Include="Models\BingSearch\SearchResult.cs" />
+    <Compile Include="Models\BingSearch\ValueSearchResult.cs" />
+    <Compile Include="Models\BingSearch\SearchApiResult.cs" />
+    <Compile Include="Models\StackOverflow\Owner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SearchService\SearchQueryService.cs" />
+    <Compile Include="Services\StackOverflowService\AnswerService.cs" />
     <Compile Include="Services\TranslateService\TranslateService.cs" />
   </ItemGroup>
   <ItemGroup>
