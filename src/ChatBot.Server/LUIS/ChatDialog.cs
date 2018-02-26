@@ -60,14 +60,23 @@ namespace ChatBot.Server.LUIS
         [LuisIntent("Question")]
         public async Task Question(IDialogContext context, LuisResult result)
         {
+            var response = ChatResponse.Default;
             var resultJson = SearchQueryService.SearchQueryId(message.Text + " stackoverflow");
             var resultQuery = JsonConvert.DeserializeObject<SearchApiResult>(resultJson);
-            ValueSearchResult question = resultQuery.WebPages.Value.FirstOrDefault();
-            string id = Util.GetIdQuestion(question.Url);
-            string answerJson = await AnswerService.GetJsonFromStackOverflow(id);
-            Answer answer = JsonConvert.DeserializeObject<AnswerResult>(answerJson).Answers.Where(x => x.IsAccepted == true).FirstOrDefault();
-                
-            await context.PostAsync(await answer.Body.ToUserLocale(context));
+            ValueSearchResult question = Util.GetBestResult(resultQuery.WebPages.Value);
+
+            if (question != null)
+            {
+                string id = Util.GetIdQuestion(question.Url);
+                string answerJson = await AnswerService.GetJsonFromStackOverflow(id);
+                Answer answer = JsonConvert.DeserializeObject<AnswerResult>(answerJson).Answers.Where(x => x.IsAccepted == true).FirstOrDefault();
+
+                await context.PostAsync(await answer.Body.ToUserLocale(context));
+            }
+            else
+            {
+                await context.PostAsync(await response.ToUserLocale(context));
+            }
             
             context.Wait(MessageReceived);
         }
