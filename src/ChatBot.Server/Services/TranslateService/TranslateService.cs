@@ -1,6 +1,4 @@
-﻿using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-using Microsoft.Bot.Connector;
+﻿using Microsoft.Bot.Connector;
 using System;
 using System.Collections.Generic;
 using System.IO;
