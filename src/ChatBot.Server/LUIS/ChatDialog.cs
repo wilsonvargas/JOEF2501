@@ -29,10 +29,24 @@ namespace ChatBot.Server.LUIS
         }
 
         private PartialMessage message;
+        private ChannelAccount member;
 
         protected override async Task MessageReceived(IDialogContext context, IAwaitable<IMessageActivity> item)
         {
             var msg = await item;
+            IConversationUpdateActivity update = (Activity)msg;
+
+            var client = new ConnectorClient(new Uri(msg.ServiceUrl), new MicrosoftAppCredentials());
+            if (update.MembersAdded != null && update.MembersAdded.Any())
+            {
+                foreach (var newMember in update.MembersAdded)
+                {
+                    if (newMember.Id == msg.Recipient.Id)
+                    {
+                        member = newMember;
+                    }
+                }
+            }
             this.message = new PartialMessage { Text = msg.Text };
             await base.MessageReceived(context, item);
         }
@@ -50,7 +64,7 @@ namespace ChatBot.Server.LUIS
         [LuisIntent("Greeting")]
         public async Task Greeting(IDialogContext context, LuisResult result)
         {
-            var response = ChatResponse.Greeting;
+            var response = $"Hi ,{member.Name} " + ChatResponse.Greeting;
 
             await context.PostAsync(await response.ToUserLocale(context));
 
@@ -77,7 +91,7 @@ namespace ChatBot.Server.LUIS
             {
                 await context.PostAsync(await response.ToUserLocale(context));
             }
-            
+
             context.Wait(MessageReceived);
         }
 
