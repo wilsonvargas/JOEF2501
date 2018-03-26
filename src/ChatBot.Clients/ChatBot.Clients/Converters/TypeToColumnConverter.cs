@@ -10,16 +10,16 @@ namespace ChatBot.Clients.Core.Converters
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
+            UserMessage user = (UserMessage)value;
+            var localUser = AppSettings.User.UserName;
             int column = 0;
-            var user = (User)value;
-            var id = AppSettings.User.Id;
-            if (user.Id != id)
+            if (user.Name != localUser)
             {
                 column = 0;
             }
             else
             {
-                column = 1;
+                column = 2;
             }
             return column;
 

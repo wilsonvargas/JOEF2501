@@ -13,9 +13,9 @@ namespace ChatBot.Clients.Core.Converters
         {
             int parameterType = int.Parse(parameter.ToString());
             Xamarin.Forms.Color background = Color.Silver;
-            var user = (User)value;
-            var id = AppSettings.User.Id;
-            if (user.Id == id)
+            UserMessage user = (UserMessage)value;
+            var localUser = AppSettings.User.UserName;
+            if (user.Name == localUser)
             {
                 background = Color.White;
                 if (parameterType == 0)

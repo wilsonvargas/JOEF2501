@@ -12,19 +12,19 @@ namespace ChatBot.Clients.Core.Converters
         {
             int parameterType = int.Parse(parameter.ToString());
             Xamarin.Forms.Color background = Color.Silver;
-            var user = (User)value;
-            var id = AppSettings.User.Id;
-            if (user.Id == id)
+            UserMessage user = (UserMessage)value;
+            var localUser = AppSettings.User.UserName;
+            if (user.Name == localUser)
             {
-                background = Color.FromHex("#FF5252");
+                background = Color.FromHex("#0078D7");
                 if (parameterType == 0)
-                    background = Color.FromHex("#F1F0F0");
+                    background = Color.FromHex("#ECEFF1");
             }
             else
             {
-                background = Color.FromHex("#F1F0F0");
+                background = Color.FromHex("#ECEFF1");
                 if (parameterType == 0)
-                    background = Color.FromHex("#FF5252");
+                    background = Color.FromHex("#0078D7");
             }
 
             return background;
