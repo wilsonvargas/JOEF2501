@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using ChatBot.Clients.Core.Services.Authentication;
+using ChatBot.Clients.Core.Services.Bot;
 using ChatBot.Clients.Core.Services.Dialog;
 using ChatBot.Clients.Core.Services.Navigation;
 using ChatBot.Clients.Core.Services.Storage;
@@ -34,6 +35,7 @@ namespace ChatBot.Clients.Core.ViewModels.Base
             _containerBuilder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
             _containerBuilder.RegisterType<DefaultBrowserCookiesService>().As<IBrowserCookiesService>();
             _containerBuilder.RegisterType<GravatarUrlProvider>().As<IAvatarUrlProvider>();
+            _containerBuilder.RegisterType<BotService>().As<IBotService>();
 
 
             _containerBuilder.RegisterType<LoginViewModel>();
