@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:ChatBot.Clients.Core.Controls"
+             xmlns:buttons="clr-namespace:ButtonCircle.FormsPlugin.Abstractions;assembly=ButtonCircle.FormsPlugin.Abstractions"
+             xmlns:animations="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="ChatBot.Clients.Core.Views.ChatRoomView"
              Title="NameRoboto">
     <ContentPage.Content>
@@ -78,7 +80,7 @@
                        Placeholder="Escriba aquí" 
                        Keyboard="Chat" Text="{Binding Text, Mode=TwoWay}"/>
 
-                <controls:CircleButton Grid.Row="3" Grid.Column="3" 
+                <buttons:CircleButton Grid.Row="3" Grid.Column="3" 
                                        FontIcon="FontAwesome" 
                                        TextColor="White"
                                        HeightRequest="50"
